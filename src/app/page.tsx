@@ -1,103 +1,124 @@
-import Image from "next/image";
+import Image from "next/image"
+import Link from "next/link"
+import AnimatedContainer from "@/components/AnimatedContainer"
+import Section from "@/components/Section"
+import ProjectCard from "@/components/ProjectCard"
+import ContactForm from "@/components/ContactForm"
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <>
+      {/* Hero with background image */}
+      <section
+        id="home"
+        className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] min-h-screen overflow-hidden flex items-end justify-center pb-20 -mt-6"
+      >
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url('/profile.jpg')` }}
+          aria-hidden
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+        <div className="absolute inset-0 bg-black/40 dark:bg-black/50" aria-hidden />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="relative z-10 text-center text-white px-6">
+          <AnimatedContainer className="flex flex-col items-center">
+            <h1 className="text-5xl font-extrabold mb-4 tracking-tight flex items-center gap-3">
+              Hi, I’m Javad
+            </h1>
+            <p className="text-lg max-w-2xl">
+              Developer passionate about fullstack apps with Next.js and Spring Boot.
+            </p>
+          </AnimatedContainer>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+      </section>
+
+
+
+      {/* CTAs after hero */}
+      <div className="max-w-5xl mx-auto px-6 mt-6 mb-8">
+        <div className="flex gap-4">
+          <Link href="/resume" className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">View Resume</Link>
+          <Link href="/blog" className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-100 dark:hover:bg-gray-700 transition">Read Blog</Link>
+        </div>
+      </div>
+
+      <div className="max-w-5xl mx-auto px-6">
+        <section id="about" className="scroll-mt-24">
+          <Section title="About" subtitle="Who I am and what I do">
+            <div className="prose dark:prose-invert max-w-none">
+              <p>
+                Hi! My name is Javad. I’m learning programming and building projects in
+                <span className="font-semibold"> Java (Spring Boot), Next.js, and databases like PostgreSQL/MySQL.</span>
+              </p>
+              <p>
+                I love backend development and I’m working on fullstack apps that combine frontend, backend, and databases.
+              </p>
+              <p>
+                This site is where I share my <span className="font-semibold">resume, projects, and blog posts</span>.
+              </p>
+            </div>
+          </Section>
+        </section>
+
+        <section id="projects" className="scroll-mt-24">
+          <Section title="Projects" subtitle="Selected work">
+            <div className="grid md:grid-cols-2 gap-6">
+              {[
+                {
+                  title: "Task Manager API",
+                  description: "Spring Boot REST API with JWT auth, PostgreSQL, and Redis caching.",
+                  tech: ["Java", "Spring Boot", "PostgreSQL", "Redis", "JWT"],
+                  repoUrl: "https://github.com/JavadShamekhi/task-manager-api",
+                },
+                {
+                  title: "Project Planner",
+                  description: "Next.js app for planning projects with drag-and-drop and Markdown notes.",
+                  tech: ["Next.js", "TypeScript", "Tailwind"],
+                  repoUrl: "https://github.com/JavadShamekhi/project-planner",
+                },
+              ].map((p) => (
+                <ProjectCard key={p.title} {...p} />
+              ))}
+            </div>
+            <div className="mt-4">
+              <Link href="/projects" className="text-blue-600 hover:underline">See all projects →</Link>
+            </div>
+          </Section>
+        </section>
+
+        <section id="blog" className="scroll-mt-24">
+          <Section title="Blog" subtitle="Latest posts">
+            <div className="grid md:grid-cols-2 gap-6">
+              {[
+                { slug: 'hello-world', title: "Hello World", excerpt: "My very first blog post!", date: "2025-09-21", tags: ["Intro"] },
+                { slug: 'nextjs-is-awesome', title: "Next.js is Awesome", excerpt: "Why Next.js is great for fullstack apps.", date: "2025-09-22", tags: ["Next.js", "Fullstack"] },
+              ].map(post => (
+                <Link key={post.slug} href={`/blog/${post.slug}`}>
+                  <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-5 rounded-lg shadow hover:shadow-lg transition-all duration-300 cursor-pointer">
+                    <h3 className="text-2xl font-semibold mb-2 text-blue-600">{post.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 mb-3">{post.excerpt}</p>
+                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 gap-4">
+                      <div>{post.date}</div>
+                      <div>{post.tags.join(", ")}</div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-4">
+              <Link href="/blog" className="text-blue-600 hover:underline">See all posts →</Link>
+            </div>
+          </Section>
+        </section>
+
+        <section id="contact" className="scroll-mt-24">
+          <Section title="Contact" subtitle="Say hello">
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+              <ContactForm />
+            </div>
+          </Section>
+        </section>
+      </div>
+    </>
+  )
 }
