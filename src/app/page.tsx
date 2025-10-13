@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 import AnimatedContainer from "@/components/AnimatedContainer"
 import Section from "@/components/Section"

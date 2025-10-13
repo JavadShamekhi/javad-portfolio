@@ -3,7 +3,6 @@ import Section from "@/components/Section";
 import TimelineItem from "@/components/TimelineItem";
 import SkillBadge from "@/components/SkillBadge";
 import ProjectCard from "@/components/ProjectCard";
-import Link from "next/link";
 import AnimatedContainer from "@/components/AnimatedContainer";
 
 export default function ResumePage() {
