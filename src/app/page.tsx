@@ -14,7 +14,7 @@ export default function HomePage() {
       >
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('/profile.jpg')` }}
+          style={{ backgroundImage: `url('/profile1.jpg')` }}
           aria-hidden
         />
         <div className="absolute inset-0 bg-black/40 dark:bg-black/50" aria-hidden />
