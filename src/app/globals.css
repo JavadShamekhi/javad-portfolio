@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+:root {
+	--foreground-rgb: 0, 0, 0;
+	--background-rgb: 255, 255, 255;
+}
 /* Optional: global styles */
 html {
   scroll-behavior: smooth;

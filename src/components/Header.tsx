@@ -6,92 +6,68 @@ import { FaGithub, FaLinkedin } from "react-icons/fa"
 import ThemeToggle from "./ThemeToggle"
 
 export default function Header() {
-    const pathname = usePathname()
-    const [active, setActive] = useState<string>('home')
-    const [isScrolled, setIsScrolled] = useState<boolean>(false)
-    const [isHidden, setIsHidden] = useState<boolean>(false)
-    const [lastY, setLastY] = useState<number>(0)
+	const pathname = usePathname()
+	const [isScrolled, setIsScrolled] = useState(false)
 
-    const linkStyle = (path: string, hash?: string) => {
-        const isHome = pathname === '/'
-        const isActive = isHome && hash ? active === hash : pathname === path
-        return isActive ? 'text-blue-200 font-bold' : 'text-white opacity-80 hover:opacity-100'
-    }
+	// Handle scroll effect
+	useEffect(() => {
+		const onScroll = () => setIsScrolled(window.scrollY > 20)
+		window.addEventListener('scroll', onScroll)
+		return () => window.removeEventListener('scroll', onScroll)
+	}, [])
 
-    // Scrollspy only on home page
-    useEffect(() => {
-        if (pathname !== '/') return
+	const linkStyle = (path: string) => {
+		const isActive = pathname === path
+		return `text-sm font-medium transition-colors ${
+				isActive
+						? 'text-blue-600 dark:text-blue-400 font-bold'
+						: 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+		}`
+	}
 
-        const sectionIds = ['home', 'about', 'projects', 'blog', 'contact']
-        const sections = sectionIds
-            .map(id => document.getElementById(id))
-            .filter(Boolean) as HTMLElement[]
-
-        if (sections.length === 0) return
-
-        const observer = new IntersectionObserver((entries) => {
-            const visible = entries
-                .filter(e => e.isIntersecting)
-                .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
-            if (visible[0]) setActive(visible[0].target.id)
-        }, {
-            rootMargin: '-20% 0px -60% 0px',
-            threshold: [0.2, 0.4, 0.6, 0.8]
-        })
-
-        sections.forEach(sec => observer.observe(sec))
-        return () => observer.disconnect()
-    }, [pathname])
-
-    // Sticky + hide on scroll down, show on scroll up
-    useEffect(() => {
-        const onScroll = () => {
-            const y = window.scrollY || 0
-            setIsScrolled(y > 10)
-            if (y > 80) {
-                setIsHidden(y > lastY) // hide when scrolling down
-            } else {
-                setIsHidden(false)
-            }
-            setLastY(y)
-        }
-        window.addEventListener('scroll', onScroll, { passive: true })
-        onScroll()
-        return () => window.removeEventListener('scroll', onScroll)
-    }, [lastY])
-
-    return (
-        <header className={`sticky top-0 z-50 w-screen text-white px-6 py-4 transition-all duration-300 ${isScrolled ? 'shadow-md backdrop-blur bg-blue-600/90' : 'bg-blue-600'} ${isHidden ? '-translate-y-full' : 'translate-y-0'}`}>
-            <div className="max-w-5xl mx-auto flex items-center justify-between">
-                {/* Logo / Site Name */}
-                <Link href="/" className="text-xl font-bold tracking-wide flex items-center gap-2">
-                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-orange-400 text-blue-900 shadow-sm">
-                        🏀
+	return (
+			<header
+					className={`sticky top-0 z-50 w-full transition-all duration-300 border-b ${
+							isScrolled
+									? 'bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-gray-200 dark:border-gray-800 py-3'
+									: 'bg-transparent border-transparent py-5'
+					}`}
+			>
+				<div className="max-w-5xl mx-auto px-6 flex items-center justify-between">
+					{/* Logo */}
+					<Link href="/" className="flex items-center gap-2 group">
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-lg group-hover:scale-110 transition-transform">
+                        J
                     </span>
-                    <span>Javad • Developer</span>
-                </Link>
+						<span className="font-space font-bold text-xl tracking-tight">Javad</span>
+					</Link>
 
-                {/* Navigation */}
-                <nav className="flex space-x-6">
-                    <Link href="/#home" className={linkStyle("/", 'home')}>Home</Link>
-                    <Link href="/#about" className={linkStyle("/", 'about')}>About</Link>
-                    <Link href="/#projects" className={linkStyle("/", 'projects')}>Projects</Link>
-                    <Link href="/#blog" className={linkStyle("/", 'blog')}>Blog</Link>
-                    <Link href="/#contact" className={linkStyle("/", 'contact')}>Contact</Link>
-                    <Link href="/basketball" className={linkStyle("/basketball")}>Basketball</Link>
-                </nav>
+					{/* Desktop Nav */}
+					<nav className="hidden md:flex items-center space-x-8">
+						<Link href="/" className={linkStyle("/")}>Home</Link>
+						<Link href="/about" className={linkStyle("/about")}>About</Link>
+						<Link href="/projects" className={linkStyle("/projects")}>Projects</Link>
+						<Link href="/resume" className={linkStyle("/resume")}>Resume</Link>
+						<Link href="/basketball" className={linkStyle("/basketball")}>
+                        <span className="flex items-center gap-1 text-orange-600 dark:text-orange-400 font-semibold bg-orange-100 dark:bg-orange-900/30 px-2 py-1 rounded-md text-xs hover:bg-orange-200 transition">
+                             🏀 Hoops
+                        </span>
+						</Link>
+					</nav>
 
-                {/* Social + Theme */}
-                <div className="flex items-center space-x-4">
-                    <a href="https://github.com/JavadShamekhi" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200">
-                        <FaGithub size={20} />
-                    </a>
-                    <a href="https://www.linkedin.com/in/javadshamekhi/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200">
-                        <FaLinkedin size={20} />
-                    </a>
-                    <ThemeToggle />
-                </div>
-            </div>
-        </header>
-    )
+					{/* Actions */}
+					<div className="flex items-center gap-4">
+						<div className="hidden sm:flex items-center gap-3 border-r border-gray-200 dark:border-gray-800 pr-4">
+							<a href="https://github.com/JavadShamekhi" target="_blank" className="text-gray-500 hover:text-black dark:hover:text-white transition">
+								<FaGithub size={18} />
+							</a>
+							<a href="https://www.linkedin.com/in/javadshamekhi/" target="_blank" className="text-gray-500 hover:text-blue-600 transition">
+								<FaLinkedin size={18} />
+							</a>
+						</div>
+						<ThemeToggle />
+					</div>
+				</div>
+			</header>
+	)
 }
