@@ -1,13 +1,13 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
-import { Metadata } from 'next'
-import { Inter, Space_Grotesk } from 'next/font/google' // 1. Import Fonts
+import {Metadata} from 'next'
+import {Inter, Space_Grotesk} from 'next/font/google' // 1. Import Fonts
 import React from 'react'
 import "./globals.css"
 
 // 2. Configure Fonts
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space' })
+const inter = Inter({subsets: ['latin'], variable: '--font-inter'})
+const spaceGrotesk = Space_Grotesk({subsets: ['latin'], variable: '--font-space'})
 
 export const metadata: Metadata = {
 	title: "Javad • Developer | Resume & Blog",
@@ -17,10 +17,11 @@ export const metadata: Metadata = {
 	},
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({children}: { children: React.ReactNode }) {
 	return (
-			<html lang='en' className="scroll-smooth">
-			<body className={`${inter.variable} ${spaceGrotesk.variable} font-sans flex flex-col min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 overflow-x-hidden`}>
+			<html lang='en' className="scroll-smooth" suppressHydrationWarning data-theme="dark">
+			<body
+					className={`${inter.variable} ${spaceGrotesk.variable} font-sans flex flex-col min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 overflow-x-hidden`}>
 			{/* Theme Script */}
 			<script
 					dangerouslySetInnerHTML={{
@@ -28,14 +29,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					}}
 			/>
 
-			<Header />
+			<Header/>
 
 			{/* 3. Changed: Removed max-w-5xl here so specific pages can control their own width */}
 			<main className='flex-grow w-full'>
 				{children}
 			</main>
 
-			<Footer />
+			<Footer/>
 			</body>
 			</html>
 	)
