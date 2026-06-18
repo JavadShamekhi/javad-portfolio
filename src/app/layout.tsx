@@ -1,9 +1,10 @@
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
-import {Metadata} from 'next'
-import {Inter, Space_Grotesk} from 'next/font/google' // 1. Import Fonts
-import React from 'react'
-import "./globals.css"
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import {Metadata} from 'next';
+import {Inter, Space_Grotesk} from 'next/font/google'; // 1. Import Fonts
+import React from 'react';
+import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 // 2. Configure Fonts
 const inter = Inter({subsets: ['latin'], variable: '--font-inter'})
@@ -34,6 +35,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
 			{/* 3. Changed: Removed max-w-5xl here so specific pages can control their own width */}
 			<main className='flex-grow w-full'>
 				{children}
+				<Toaster position="bottom-right" />
 			</main>
 
 			<Footer/>
