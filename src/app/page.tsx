@@ -105,7 +105,7 @@ export default function HomePage() {
 					</Section>
 
 					<Section id="contact" title="Get in Touch" subtitle="Let's work together">
-						<div className="bg-gray-50 dark:bg-gray-900 p-8 md:p-12 rounded-3xl">
+						<div className="bg-blue-100/50 dark:bg-gray-900/50 p-8 md:p-12 rounded-3xl">
 							<ContactForm />
 						</div>
 					</Section>
