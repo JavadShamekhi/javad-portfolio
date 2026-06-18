@@ -1,29 +1,72 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+@plugin "@tailwindcss/typography";
+@custom-variant dark (&:is(.dark *));
 
+/* =========================
+   BASE DESIGN TOKENS
+========================= */
+@theme {
+	/* Brand Colors */
+	--color-primary: #3B82F6;
+	--color-secondary: #8B5CF6;
+
+	/* Fonts */
+	--font-inter: "Inter", sans-serif;
+	--font-sans: var(--font-inter);
+	--font-space: var(--font-space);
+}
+
+/* =========================
+   LIGHT / DARK VARIABLES
+========================= */
 :root {
-	--foreground-rgb: 0, 0, 0;
-	--background-rgb: 255, 255, 255;
+	--bg: white; /* gray-50 */
+	--text: #111827; /* gray-900 */
+	--muted: #374151; /* gray-700 */
+	--card: #ffffff;
+	--border: #e5e7eb;
+	--muted1: #2563EB; /* blue-400 */
+	--toggle-b: rgba(55, 65, 81, 0.3); /* gray-700/30 */
+	--toggle-bh: #1F2937; /* gray-800 */
 }
-/* Optional: global styles */
+
+.dark {
+	--bg: #030712; /* gray-950 */
+	--text: #f9fafb;
+	--muted: #D1D5DB; /* gray-300 */
+	--card: #111827;
+	--border: #1f2937;
+	--muted1: #2563EB; /* blue-600 */
+	--toggle-b: #FFFFFF33; /* white/20 */
+	--toggle-bh: #FFFFFF66; /* white/40 */
+}
+
+/* =========================
+   GLOBAL STYLES
+========================= */
 html {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
+
+/* IMPORTANT: body uses variables (not Tailwind classes anymore) */
 body {
-  @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-inter;
+	font-family: var(--font-inter);
+
+	@apply transition-colors duration-200;
 }
 
+/* =========================
+   TYPOGRAPHY
+========================= */
+h1, h2, h3, h4, h5, h6 {
+	@apply font-bold;
+	color: var(--text);
+}
+
+/* =========================
+   LINKS
+========================= */
 a {
-  @apply transition-colors duration-200;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply font-bold;
+	@apply transition-colors duration-200;
 }
