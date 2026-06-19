@@ -60,7 +60,7 @@ export default function ProjectsPage() {
 							</button>
 					))}
 				</div>
-				<div className="grid md:grid-cols-2 gap-6">
+				<div className="grid md:grid-cols-2 gap-6 mb-8">
 					{filtered.map((p) => (
 							<ProjectCard key={p.title} {...p} />
 					))}
