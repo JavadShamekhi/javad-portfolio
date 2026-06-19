@@ -3,6 +3,9 @@ import AnimatedContainer from "@/components/AnimatedContainer"
 import Section from "@/components/Section"
 import ProjectCard from "@/components/ProjectCard"
 import ContactForm from "@/components/ContactForm"
+import {FaBriefcase} from "react-icons/fa";
+import TimelineItem from "@/components/TimelineItem";
+import Image from "next/image";
 
 export default function HomePage() {
 	return (
@@ -31,10 +34,11 @@ export default function HomePage() {
 							</h1>
 
 							<p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed mb-8">
-								Fullstack developer specializing in <strong
-									className="text-gray-900 dark:text-white">Next.js</strong> and <strong
-									className="text-gray-900 dark:text-white">Spring Boot</strong>. I build scalable backends and
-								beautiful frontends.
+								Frontend developer specializing in <strong
+									className="text-gray-900 dark:text-white">React</strong>,{" "}
+								<strong className="text-gray-900 dark:text-white">Next.js</strong>, and{" "}
+								<strong className="text-gray-900 dark:text-white">TypeScript</strong>. I build modern, responsive, and
+								user-friendly web applications with clean and scalable UI architecture.
 							</p>
 
 							<div className="flex flex-col sm:flex-row gap-4">
@@ -43,7 +47,7 @@ export default function HomePage() {
 									View Work
 								</Link>
 								<Link href="/contact"
-								      className="px-8 py-3.5 rounded-full font-semibold text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900 transition-all">
+								      className="px-8 py-3.5 rounded-full font-semibold text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-800 hover:bg-gray-200 dark:hover:bg-gray-900 transition-all">
 									Contact Me
 								</Link>
 							</div>
@@ -54,7 +58,15 @@ export default function HomePage() {
 				{/* Main Content Container */}
 				<div className="max-w-5xl mx-auto px-6 py-12 space-y-24">
 
-					<Section id="about" title="About" subtitle="Who I am and what I do">
+					<Section id="about" title={<span
+							className="inline-flex items-center gap-2">
+						<Image
+								src="/images/my-photo.png"
+								alt="My iconinc picture"
+								width="40"
+								height="40"
+						/> About</span> as unknown as string}
+					         subtitle="Who I am and what I do">
 						<div className="prose dark:prose-invert max-w-none text-lg text-gray-600 dark:text-gray-400">
 							<p>
 								Hi! I’m <span className="font-semibold text-gray-900 dark:text-white">Javad</span>, a frontend developer
@@ -74,7 +86,8 @@ export default function HomePage() {
 								<span className="font-semibold text-gray-900 dark:text-white">
 				Computer Engineering
 			</span>{" "}
-								and I’m continuously improving my skills in frontend development, UI engineering, and modern web technologies.
+								and I’m continuously improving my skills in frontend development, UI engineering, and modern web
+								technologies.
 							</p>
 
 							<p>
@@ -87,7 +100,7 @@ export default function HomePage() {
 						</div>
 						<div className="mt-8 text-center">
 							<Link href="/about" className="inline-flex items-center text-blue-600 font-semibold hover:underline">
-								 More about me and my skills →
+								More about me and my skills →
 							</Link>
 						</div>
 					</Section>
@@ -121,40 +134,35 @@ export default function HomePage() {
 							</Link>
 						</div>
 					</Section>
+					<Section title={<span
+							className="inline-flex items-center gap-2"><FaBriefcase/> Experience</span> as unknown as string}
+					         subtitle="You can see my job experiences here"
+					         id="experience"
+					>
+						<ul className="space-y-6 border-l-2 border-blue-600/60 dark:border-blue-500/60 pl-4">
+							<TimelineItem
+									title="ERP Software Support & Database Specialist"
+									org="ERP Solutions Company, at Ava Samaneh Mandegar, Karaj"
+									period="2022 – 2023"
+									description="Worked on enterprise ERP systems with a focus on SQL Server database management, reporting, and system maintenance."
+									bullets={["Developed and optimized T-SQL queries, stored procedures, and reports", "Performed SQL Server backup and recovery operations", "Improved database performance and troubleshooting processes", "Provided technical support for ERP users and business operations"]}
+							/>
+							<TimelineItem
+									title="Frontend Developer - React"
+									org="Administrative Automation System at Military of Iran, Tehran"
+									period="2024–2026"
+									description="Developed and maintained web-based administrative automation software using React."
+									bullets={["Built responsive and user-friendly interfaces with React", "Implemented reusable components and modern frontend architecture", "Integrated frontend applications with backend APIs", "Collaborated with stakeholders to improve usability and workflow efficiency"]}
+							/>
+						</ul>
 
-					<Section id="blog" title="Latest Writing" subtitle="Thoughts on code and tech">
-						<div className="grid md:grid-cols-2 gap-6">
-							{[
-								{
-									slug: 'hello-world',
-									title: "Hello World",
-									excerpt: "My very first blog post!",
-									date: "2025-09-21",
-									tags: ["Intro"]
-								},
-								{
-									slug: 'nextjs-is-awesome',
-									title: "Next.js is Awesome",
-									excerpt: "Why Next.js is great for fullstack apps.",
-									date: "2025-09-22",
-									tags: ["Next.js"]
-								},
-							].map(post => (
-									<Link key={post.slug} href={`/blog/${post.slug}`} className="group block">
-										<div
-												className="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-2xl hover:bg-white dark:hover:bg-gray-900 border border-transparent hover:border-gray-200 dark:hover:border-gray-800 transition-all duration-300">
-											<div className="flex items-center gap-3 text-sm text-gray-500 mb-3">
-												<span>{post.date}</span>
-												<span>•</span>
-												<span className="text-blue-600 dark:text-blue-400">{post.tags[0]}</span>
-											</div>
-											<h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100 group-hover:text-blue-600 transition-colors">{post.title}</h3>
-											<p className="text-gray-600 dark:text-gray-400">{post.excerpt}</p>
-										</div>
-									</Link>
-							))}
+						<div className="mt-8 text-center">
+							<Link href="/resume" className="inline-flex items-center text-blue-600 font-semibold hover:underline">
+								View full resume →
+							</Link>
 						</div>
 					</Section>
+
 
 					<Section id="contact" title="Get in Touch" subtitle="Let's work together">
 						<div className="bg-blue-100/50 dark:bg-gray-900/50 p-8 md:p-12 rounded-3xl">
