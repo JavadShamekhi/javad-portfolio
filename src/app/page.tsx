@@ -57,13 +57,38 @@ export default function HomePage() {
 					<Section id="about" title="About" subtitle="Who I am and what I do">
 						<div className="prose dark:prose-invert max-w-none text-lg text-gray-600 dark:text-gray-400">
 							<p>
-								Hi! My name is Javad. I’m learning programming and building projects in
-								<span className="font-semibold text-gray-900 dark:text-white"> Java (Spring Boot), Next.js, and databases like PostgreSQL/MySQL.</span>
+								Hi! I’m <span className="font-semibold text-gray-900 dark:text-white">Javad</span>, a frontend developer
+								focused on building modern, responsive, and user-friendly web applications.
 							</p>
+
 							<p>
-								I love backend development and I’m working on fullstack apps that combine frontend, backend, and
-								databases.
+								I have hands-on experience with{" "}
+								<span className="font-semibold text-gray-900 dark:text-white">
+				React, Next.js, TypeScript, Tailwind CSS, Material UI, and Ant Design
+			</span>{" "}
+								and I enjoy turning ideas into clean, scalable, and interactive interfaces.
 							</p>
+
+							<p>
+								I graduated in{" "}
+								<span className="font-semibold text-gray-900 dark:text-white">
+				Computer Engineering
+			</span>{" "}
+								and I’m continuously improving my skills in frontend development, UI engineering, and modern web technologies.
+							</p>
+
+							<p>
+								Beyond coding, I’m an active and social person who enjoys{" "}
+								<span className="font-semibold text-gray-900 dark:text-white">
+				basketball, spending time with friends, and working in team environments
+			</span>
+								. I like learning new things, improving myself, and growing both technically and personally.
+							</p>
+						</div>
+						<div className="mt-8 text-center">
+							<Link href="/about" className="inline-flex items-center text-blue-600 font-semibold hover:underline">
+								 More about me and my skills →
+							</Link>
 						</div>
 					</Section>
 
