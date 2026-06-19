@@ -48,6 +48,7 @@ export default function Header() {
 						<Link href="/about" className={linkStyle("/about")}>About</Link>
 						<Link href="/projects" className={linkStyle("/projects")}>Projects</Link>
 						<Link href="/resume" className={linkStyle("/resume")}>Resume</Link>
+						<Link href="/contact" className={linkStyle("/contact")}>Contact</Link>
 						<Link href="/basketball" className={linkStyle("/basketball")}>
                         <span className="flex items-center gap-1 text-orange-600 dark:text-orange-400 font-semibold bg-orange-100 dark:bg-orange-900/30 px-2 py-1 rounded-md text-xs hover:bg-orange-200 transition">
                              🏀 Hoops
