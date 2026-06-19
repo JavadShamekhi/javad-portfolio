@@ -35,7 +35,7 @@ export default function ResumePage() {
 					<p className="text-gray-600 dark:text-gray-300 mt-2">Frontend Developer | React.js • Next.js • TypeScript</p>
 					<div className="mt-4">
 						<a
-								href="/api/resume/pdf"
+								href="/pdf/JavadShamekhi-cv.pdf"
 								download
 								className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
 						>
