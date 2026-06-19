@@ -5,6 +5,11 @@ import SkillBadge from "@/components/SkillBadge";
 import ProjectCard from "@/components/ProjectCard";
 import AnimatedContainer from "@/components/AnimatedContainer";
 
+export const metadata = {
+	title: "Resume - My Resume and Experiences",
+}
+
+
 export default function ResumePage() {
 	const skills = [
 		"Next.js", "TypeScript", "Tailwind CSS", "React", "ReactQuery", "MUI", "Ant Design", "Responsive Design", "REST API", "Neon Database", "Auth", "JWT", "GoLang", "Java", "Spring Boot", "SQL", "PostgreSQL", "MySQL", "Redis"];

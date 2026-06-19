@@ -1,9 +1,14 @@
 import ContactForm from "@/components/ContactForm";
 import AnimatedContainer from "@/components/AnimatedContainer";
 
+export const metadata = {
+	title: "Contact - Get in Touch",
+}
+
+
 export default function ContactPage() {
     return (
-        <AnimatedContainer className="max-w-3xl mx-auto">
+        <AnimatedContainer className="max-w-3xl mx-auto mb-8">
             <h2 className="text-4xl font-bold mb-5 text-center">Contact Me</h2>
             <p className="dark:text-gray-400 text-gray-700 mb-6 text-center">
                 Have a question or want to collaborate? Send me a message using the form below!
