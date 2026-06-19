@@ -11,10 +11,10 @@ const inter = Inter({subsets: ['latin'], variable: '--font-inter'})
 const spaceGrotesk = Space_Grotesk({subsets: ['latin'], variable: '--font-space'})
 
 export const metadata: Metadata = {
-	title: "Javad • Frontend Developer | Resume & Blog",
+	title: "Javad • Frontend Developer | Portfolio",
 	description: "Frontend Developer | React.js • Next.js • TypeScript | Open to work",
 	icons: {
-		icon: "/images/my-photo.png", // Make sure this path is correct in your public folder
+		icon: "/images/cropped_circle_image.png", // Make sure this path is correct in your public folder
 	},
 }
 
