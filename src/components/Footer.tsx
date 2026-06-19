@@ -6,7 +6,7 @@ import {
 export default function Footer() {
 	return (
 			<footer
-					className="relative bg-gray-200 dark:bg-gray-950/80 text-gray-600 dark:text-gray-400 py-20 mt-auto overflow-hidden transition-colors duration-300">
+					className="relative bg-gray-300/50 dark:bg-blue-950/30 text-gray-600 dark:text-gray-400 py-20 mt-auto overflow-hidden transition-colors duration-300">
 
 				{/* Background Image with Low Opacity */}
 				<div
@@ -74,11 +74,11 @@ export default function Footer() {
 									<FaGithub size={20}/>
 								</a>
 								<a href="https://www.linkedin.com/in/javadshamekhi/" target="_blank" rel="noreferrer"
-								   className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-[#0077b5] hover:text-white transition-all">
+								   className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-[#0077b5] hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
 									<FaLinkedin size={20}/>
 								</a>
 								<a href="https://instagram.com/javadshamekhi" target="_blank" rel="noreferrer"
-								   className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-[#e1306c] hover:text-white transition-all">
+								   className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-[#e1306c] hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
 									<FaInstagram size={20}/>
 								</a>
 							</div>
@@ -87,7 +87,7 @@ export default function Footer() {
 
 					{/* Bottom Bar */}
 					<div
-							className="mt-20 pt-8 border-t border-gray-500 dark:border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-medium uppercase tracking-widest text-gray-600">
+							className="mt-20 pt-8 border-t border-gray-500 dark:border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-medium uppercase tracking-widest text-gray-600 dark:text-gray-500">
 						<p>© {new Date().getFullYear()} . Designed and Developed by Javad Shamekhi</p>
 						<div className="flex gap-6">
 							<span
