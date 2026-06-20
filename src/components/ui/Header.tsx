@@ -37,11 +37,11 @@ export default function Header({locale, dict}: { locale: Locale; dict: Dictionar
 	}
 
 	const navLinks = [
-		{name: dict.nav.home, path: "/"},
-		{name: dict.nav.about, path: "/about"},
-		{name: dict.nav.projects, path: "/projects"},
-		{name: dict.nav.resume, path: "/resume"},
-		{name: dict.nav.contact, path: "/contact"},
+		{name: dict.nav.home, path: `/${locale}`},
+		{name: dict.nav.about, path: `/${locale}/about`},
+		{name: dict.nav.projects, path: `/${locale}/projects`},
+		{name: dict.nav.resume, path: `/${locale}/resume`},
+		{name: dict.nav.contact, path: `/${locale}/contact`},
 	];
 
 	return (
@@ -54,7 +54,7 @@ export default function Header({locale, dict}: { locale: Locale; dict: Dictionar
 			>
 				<div className="max-w-5xl mx-auto px-6 flex items-center justify-between">
 					{/* Logo */}
-					<Link href="/public" className="flex items-center gap-2 group">
+					<Link href={`/${locale}`} className="flex items-center gap-2 group">
                     <span
 		                    className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-lg group-hover:scale-110 transition-transform">
                         J
@@ -69,7 +69,7 @@ export default function Header({locale, dict}: { locale: Locale; dict: Dictionar
 									{link.name}
 								</Link>
 						))}
-						<Link href="/basketball" className={linkStyle("/basketball")}>
+						<Link href={`/${locale}/basketball`} className={linkStyle(`/${locale}/basketball`)}>
                         <span
 		                        className="flex items-center gap-1 text-orange-600 dark:text-orange-400 font-semibold bg-orange-100 dark:bg-orange-900/30 px-2 py-1 rounded-md text-xs hover:bg-orange-200 transition">
                              🏀 Hoops
@@ -120,7 +120,7 @@ export default function Header({locale, dict}: { locale: Locale; dict: Dictionar
 									{link.name}
 								</Link>
 						))}
-						<Link href="/basketball" className="inline-block py-2">
+						<Link href={`/${locale}/basketball`} className="inline-block py-2">
                         <span
 		                        className="flex items-center w-fit gap-2 text-orange-600 dark:text-orange-400 font-semibold bg-orange-100 dark:bg-orange-900/30 px-3 py-2 rounded-md text-sm">
                              🏀 Basketball (Hoops)
