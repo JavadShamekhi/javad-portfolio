@@ -1,7 +1,7 @@
 import Footer from '@/components/ui/Footer';
 import Header from '@/components/ui/Header';
 import {Metadata} from 'next';
-import {Inter, Space_Grotesk} from 'next/font/google'; // 1. Import Fonts
+import {Inter, Space_Grotesk, Vazirmatn} from 'next/font/google'; // 1. Import Fonts
 import React from 'react';
 import "../globals.css";
 import {Toaster} from "react-hot-toast";
@@ -14,6 +14,7 @@ import {type} from "node:os";
 // 2. Configure Fonts
 const inter = Inter({subsets: ['latin'], variable: '--font-inter'})
 const spaceGrotesk = Space_Grotesk({subsets: ['latin'], variable: '--font-space'})
+const vazirmatn = Vazirmatn({subsets: ['arabic'], variable: '--font-vazir'});
 
 export const metadata: Metadata = {
 	title: "Javad • Frontend Developer | Portfolio",
@@ -38,7 +39,7 @@ export default async function RootLayout({children, params}: {
 	return (
 			<html lang={typedLocale} dir={dir} className="scroll-smooth" suppressHydrationWarning data-theme="dark">
 			<body
-					className={`${inter.variable} ${spaceGrotesk.variable} font-sans flex flex-col min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 overflow-x-hidden`}>
+					className={`${inter.variable} ${spaceGrotesk.variable} ${vazirmatn.variable} font-sans flex flex-col min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 overflow-x-hidden`}>
 			<SuppressScriptWarning/>
 			{/* Theme Script */}
 			<Script
@@ -57,7 +58,7 @@ export default async function RootLayout({children, params}: {
 				<Toaster position="bottom-right"/>
 			</main>
 
-			<Footer/>
+			<Footer locale={typedLocale} dict={dict}/>
 			</body>
 			</html>
 	)
