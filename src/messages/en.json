@@ -2,7 +2,111 @@
   "home": {
     "title": "Welcome",
     "description": "This is the homepage",
-    "available": "Available for work"
+    "available": "Available for work",
+    "hi": "Hi, I’m",
+    "javad": "Javad",
+    "introPrefix": "Frontend developer specializing in",
+    "introMiddle": ", and",
+    "introSuffix": "I build modern, responsive, and user-friendly web applications with clean and scalable UI architecture.",
+    "viewWork": "View Work",
+    "contactMe": "Contact Me"
+  },
+  "about": {
+    "sectionTitle": "About",
+    "sectionSubtitle": "Who I am and what I do",
+    "intro": "Hi! I'm",
+    "introRole": "a frontend developer focused on building modern, responsive, and user-friendly web applications.",
+    "experiencePrefix": "I have hands-on experience with",
+    "experienceSkills": "React, Next.js, TypeScript, Tailwind CSS, Material UI, and Ant Design",
+    "experienceSuffix": "and I enjoy turning ideas into clean, scalable, and interactive interfaces.",
+    "educationPrefix": "I graduated in",
+    "educationDegree": "Computer Engineering",
+    "educationSuffix": "and I'm continuously improving my skills in frontend development, UI engineering, and modern web technologies.",
+    "hobbiesPrefix": "Beyond coding, I'm an active and social person who enjoys",
+    "hobbiesList": "basketball, spending time with friends, and working in team environments",
+    "hobbiesSuffix": "I like learning new things, improving myself, and growing both technically and personally.",
+    "moreLink": "More about me and my skills"
+  },
+  "aboutPage": {
+    "metaTitle": "About - My Portfolio",
+    "title": "About Me",
+    "intro": "Hi! I'm",
+    "introRole": "a frontend developer passionate about building modern, responsive, and user-friendly web applications.",
+    "experiencePrefix": "I have hands-on experience working with",
+    "experienceSkills": "React, Next.js, TypeScript, Tailwind CSS, Material UI, and Ant Design",
+    "experienceSuffix": "and I enjoy turning ideas into clean and scalable interfaces.",
+    "educationPrefix": "I graduated in",
+    "educationDegree": "Computer Engineering",
+    "educationSuffix": "and I continue improving my skills in frontend development, UI engineering, and modern web technologies.",
+    "projectsNote": "I've built and deployed real-world projects such as an e-commerce platform and a personal portfolio website, working with REST APIs, databases, and full frontend architecture.",
+    "skillsTitle": "Skills",
+    "skills": {
+      "coreFrontendLabel": "Core Frontend",
+      "coreFrontendValue": "React, Next.js, TypeScript, JavaScript (ES6+), HTML5, CSS3",
+      "stylingLabel": "Styling & UI",
+      "stylingValue": "Tailwind CSS, Material UI, Ant Design, Responsive Design",
+      "apiLabel": "API & Data",
+      "apiValue": "REST API integration, React Hooks, Context API",
+      "toolsLabel": "Tools",
+      "toolsValue": "Git, GitHub, VS Code, Postman, Vercel, Figma",
+      "backendLabel": "Backend Knowledge",
+      "backendValue": "Basic Node.js, Express, MySQL, PostgreSQL",
+      "softSkillsLabel": "Soft Skills",
+      "softSkillsValue": "Problem solving, teamwork, communication, adaptability"
+    },
+    "personalPrefix": "Beyond coding, I'm an active and curious person who enjoys",
+    "personalList": "basketball, teamwork, and spending time with friends",
+    "personalSuffix": "I'm motivated to learn, improve myself, and contribute to strong and creative teams."
+  },
+  "projects": {
+    "sectionTitle": "Featured Projects",
+    "sectionSubtitle": "Selected work",
+    "viewAllLink": "View all projects"
+  },
+  "projectsPage": {
+    "title": "Projects",
+    "filterAll": "All"
+  },
+  "experience": {
+    "sectionTitle": "Experience",
+    "sectionSubtitle": "You can see my job experiences here",
+    "viewFullLink": "View full resume"
+  },
+  "contact": {
+    "sectionTitle": "Get in Touch",
+    "sectionSubtitle": "Let's work together"
+  },
+  "contactForm": {
+    "namePlaceholder": "Your Name",
+    "emailPlaceholder": "Your Email",
+    "messagePlaceholder": "Your Message",
+    "submit": "Send Message",
+    "successToast": "Message sent successfully 🚀",
+    "errorToast": "Failed to send message ❌"
+  },
+  "contactPage": {
+    "title": "Contact Me",
+    "subtitle": "Have a question or want to collaborate? Send me a message using the form below!",
+    "metaTitle": "Contact - Get in Touch"
+  },
+  "resumePage": {
+    "metaTitle": "Resume - My Resume and Experiences",
+    "title": "My Resume",
+    "subtitle": "Frontend Developer | React.js • Next.js • TypeScript",
+    "downloadPdf": "Download PDF",
+    "experienceTitle": "Experience",
+    "skillsTitle": "Skills",
+    "educationTitle": "Education",
+    "projectsTitle": "Projects"
+  },
+  "footer": {
+    "profile": "JAVAD SHAMEKHI",
+    "bio": "Frontend Developer specializing in building exceptional digital experiences. Focused on clean code and user-centric design.",
+    "contactTitle": "Contact",
+    "socialsTitle": "Socials",
+    "copyrightSuffix": "Designed and Developed by Javad Shamekhi",
+    "basedIn": "Based in Iran",
+    "availableForWork": "Available for Work"
   },
   "nav": {
     "home": "Home",
@@ -10,5 +114,8 @@
     "contact": "Contact",
     "projects": "Projects",
     "resume": "Resume"
+  },
+  "common": {
+    "back": "Back"
   }
 }

@@ -2,13 +2,120 @@
   "home": {
     "title": "خوش آمدید",
     "description": "این صفحه‌ی اصلی است",
-    "available": "در دسترس برای کار"
+    "available": "در دسترس برای کار",
+    "hi": "سلام، من",
+    "javad": "جوادم",
+    "introPrefix": "توسعه‌دهنده فرانت‌اند با تخصص در",
+    "introMiddle": "و",
+    "introSuffix": "من اپلیکیشن‌های وب مدرن، ریسپانسیو و کاربرپسند با معماری UI تمیز و مقیاس‌پذیر می‌سازم.",
+    "viewWork": "نمونه کارها",
+    "contactMe": "ارتباط با من"
+  },
+  "about": {
+    "sectionTitle": "درباره من",
+    "sectionSubtitle": "من کی هستم و چه کاری انجام می‌دهم",
+    "intro": "سلام! من",
+    "introRole": " یک توسعه‌دهنده فرانت‌اند که روی ساخت اپلیکیشن‌های وب مدرن، ریسپانسیو و کاربرپسند تمرکز دارم.",
+    "experiencePrefix": "من تجربه‌ی عملی با",
+    "experienceSkills": "React، Next.js، TypeScript، Tailwind CSS، Material UI و Ant Design",
+    "experienceSuffix": "دارم و از تبدیل ایده‌ها به رابط‌های کاربری تمیز، مقیاس‌پذیر و تعاملی لذت می‌برم.",
+    "educationPrefix": "من در رشته‌ی",
+    "educationDegree": "مهندسی کامپیوتر",
+    "educationSuffix": "فارغ‌التحصیل شده‌ام و به‌طور مداوم مهارت‌هایم در توسعه فرانت‌اند، مهندسی UI و تکنولوژی‌های وب مدرن را بهبود می‌دهم.",
+    "hobbiesPrefix": "جدا از برنامه‌نویسی، فردی فعال و اجتماعی هستم که از",
+    "hobbiesList": "بسکتبال، گذراندن وقت با دوستان و کار در محیط‌های تیمی",
+    "hobbiesSuffix": "لذت می‌برم. من به یادگیری چیزهای جدید، بهبود خودم و رشد فنی و شخصی علاقه دارم.",
+    "moreLink": "بیشتر درباره من و مهارت‌هایم"
+  },
+  "aboutPage": {
+    "metaTitle": "درباره من - نمونه‌کار من",
+    "title": "درباره من",
+    "intro": "سلام! من",
+    "introRole": " یک توسعه‌دهنده فرانت‌اند که به ساخت اپلیکیشن‌های وب مدرن، ریسپانسیو و کاربرپسند علاقه دارم.",
+    "experiencePrefix": "من تجربه‌ی عملی کار با",
+    "experienceSkills": "React، Next.js، TypeScript، Tailwind CSS، Material UI و Ant Design",
+    "experienceSuffix": "دارم و از تبدیل ایده‌ها به رابط‌های کاربری تمیز و مقیاس‌پذیر لذت می‌برم.",
+    "educationPrefix": "من در رشته‌ی",
+    "educationDegree": "مهندسی کامپیوتر",
+    "educationSuffix": "فارغ‌التحصیل شده‌ام و همچنان مهارت‌هایم در توسعه فرانت‌اند، مهندسی UI و تکنولوژی‌های وب مدرن را بهبود می‌دهم.",
+    "projectsNote": "من پروژه‌های واقعی مانند یک پلتفرم فروشگاهی و یک وب‌سایت نمونه‌کار شخصی را ساخته و دیپلوی کرده‌ام، با کار روی REST API ها، پایگاه‌های داده و معماری کامل فرانت‌اند.",
+    "skillsTitle": "مهارت‌ها",
+    "skills": {
+      "coreFrontendLabel": "فرانت‌اند",
+      "coreFrontendValue": "React، Next.js، TypeScript، JavaScript (ES6+)، HTML5، CSS3",
+      "stylingLabel": "استایل‌دهی و UI",
+      "stylingValue": "Tailwind CSS، Material UI، Ant Design، طراحی ریسپانسیو",
+      "apiLabel": "API و داده",
+      "apiValue": "یکپارچه‌سازی REST API، React Hooks، Context API",
+      "toolsLabel": "ابزارها",
+      "toolsValue": "Git، GitHub، VS Code، Postman، Vercel، Figma",
+      "backendLabel": "دانش بک‌اند",
+      "backendValue": "Node.js، Express، MySQL، PostgreSQL",
+      "softSkillsLabel": "مهارت‌های نرم",
+      "softSkillsValue": "حل مسئله، کار تیمی، ارتباطات، انطباق‌پذیری"
+    },
+    "personalPrefix": "جدا از برنامه‌نویسی، فردی فعال و کنجکاو هستم که از",
+    "personalList": "بسکتبال، کار تیمی و گذراندن وقت با دوستان",
+    "personalSuffix": "لذت می‌برم. من برای یادگیری، بهبود خودم و مشارکت در تیم‌های قوی و خلاق انگیزه دارم."
+  },
+  "projects": {
+    "sectionTitle": "پروژه‌های ویژه",
+    "sectionSubtitle": "نمونه کارهای منتخب",
+    "viewAllLink": "مشاهده همه پروژه‌ها"
+  },
+  "projectsPage": {
+    "title": "پروژه‌ها",
+    "filterAll": "همه"
+  },
+  "experience": {
+    "sectionTitle": "تجربه کاری",
+    "sectionSubtitle": "می‌توانید تجربه‌های شغلی من را اینجا ببینید",
+    "viewFullLink": "مشاهده رزومه کامل"
+  },
+  "contact": {
+    "sectionTitle": "تماس با من",
+    "sectionSubtitle": "بیایید با هم همکاری کنیم"
+  },
+  "contactForm": {
+    "namePlaceholder": "نام شما",
+    "emailPlaceholder": "ایمیل شما",
+    "messagePlaceholder": "پیام شما",
+    "submit": "ارسال پیام",
+    "successToast": "پیام با موفقیت ارسال شد 🚀",
+    "errorToast": "ارسال پیام ناموفق بود ❌"
+  },
+  "contactPage": {
+    "title": "تماس با من",
+    "subtitle": "سوالی دارید یا می‌خواهید همکاری کنید؟ پیام خود را با فرم زیر ارسال کنید!",
+    "metaTitle": "تماس - در ارتباط باشید"
+  },
+  "resumePage": {
+    "metaTitle": "رزومه - رزومه و تجربیات من",
+    "title": "رزومه من",
+    "subtitle": "توسعه‌دهنده فرانت‌اند | React.js • Next.js • TypeScript",
+    "downloadPdf": "دانلود PDF",
+    "experienceTitle": "تجربه کاری",
+    "skillsTitle": "مهارت‌ها",
+    "educationTitle": "تحصیلات",
+    "projectsTitle": "پروژه‌ها"
+  },
+  "footer": {
+    "profile": "جواد شامخی",
+    "bio": "توسعه‌دهنده فرانت‌اند با تخصص در ساخت تجربه‌های دیجیتال استثنایی. متمرکز بر کد تمیز و طراحی کاربرمحور.",
+    "contactTitle": "راه های ارتباطی",
+    "socialsTitle": "شبکه‌های اجتماعی",
+    "copyrightSuffix": "طراحی و توسعه توسط جواد شامخی",
+    "basedIn": "مستقر در ایران",
+    "availableForWork": "آماده برای همکاری"
   },
   "nav": {
     "home": "خانه",
-    "about": "درباره ما",
-    "contact": "تماس با ما",
+    "about": "درباره من",
+    "contact": "تماس با من",
     "projects": "پروژه ها",
     "resume": "رزومه"
+  },
+  "common": {
+    "back": "بازگشت"
   }
 }
