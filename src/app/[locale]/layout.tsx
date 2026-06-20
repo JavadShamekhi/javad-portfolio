@@ -36,7 +36,7 @@ export default async function RootLayout({children, params}: {
 	const dict = await getDictionary(typedLocale);
 	const dir = rtlLocales.includes(typedLocale) ? 'rtl' : 'ltr';
 	return (
-			<html lang={type()} dir={dir} className="scroll-smooth" suppressHydrationWarning data-theme="dark">
+			<html lang={typedLocale} dir={dir} className="scroll-smooth" suppressHydrationWarning data-theme="dark">
 			<body
 					className={`${inter.variable} ${spaceGrotesk.variable} font-sans flex flex-col min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 overflow-x-hidden`}>
 			<SuppressScriptWarning/>
