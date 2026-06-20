@@ -1,12 +1,16 @@
 'use client'
 import Link from "next/link"
 import {useEffect, useState} from "react"
-import {usePathname} from "next/navigation"
+import {useParams, usePathname} from "next/navigation"
 import {FaGithub, FaLinkedin} from "react-icons/fa"
 import ThemeToggle from "./ThemeToggle"
 import {HiMenu, HiX} from "react-icons/hi";
+import {Locale} from "@/lib/i18n/config";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import {getDictionary} from "@/lib/i18n/getDictionary";
+import {Dictionary} from "@/lib/i18n/types";
 
-export default function Header() {
+export default function Header({locale, dict}: { locale: Locale; dict: Dictionary }) {
 	const pathname = usePathname();
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false); // Mobile menu state
@@ -33,11 +37,11 @@ export default function Header() {
 	}
 
 	const navLinks = [
-		{name: "Home", path: "/"},
-		{name: "About", path: "/about"},
-		{name: "Projects", path: "/projects"},
-		{name: "Resume", path: "/resume"},
-		{name: "Contact", path: "/contact"},
+		{name: dict.nav.home, path: "/"},
+		{name: dict.nav.about, path: "/about"},
+		{name: dict.nav.projects, path: "/projects"},
+		{name: dict.nav.resume, path: "/resume"},
+		{name: dict.nav.contact, path: "/contact"},
 	];
 
 	return (
@@ -50,7 +54,7 @@ export default function Header() {
 			>
 				<div className="max-w-5xl mx-auto px-6 flex items-center justify-between">
 					{/* Logo */}
-					<Link href="/" className="flex items-center gap-2 group">
+					<Link href="/public" className="flex items-center gap-2 group">
                     <span
 		                    className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-lg group-hover:scale-110 transition-transform">
                         J
@@ -86,6 +90,7 @@ export default function Header() {
 							</a>
 						</div>
 						<ThemeToggle/>
+						<LanguageSwitcher currentLocale={locale}/>
 
 						{/* Mobile Menu Button */}
 						<button
@@ -99,7 +104,8 @@ export default function Header() {
 					</div>
 				</div>
 
-				{/* Mobile Menu Overlay */}
+				{/* Mobile Menu Overlay */
+				}
 				<div className={`
                 md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800 transition-all duration-300 ease-in-out overflow-hidden
                 ${isMenuOpen ? 'max-h-screen opacity-100 visible' : 'max-h-0 opacity-0 invisible'}
