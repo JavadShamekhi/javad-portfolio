@@ -9,6 +9,7 @@ import {Locale, locales, rtlLocales} from "@/lib/i18n/config";
 import Script from "next/script";
 import SuppressScriptWarning from "@/components/SuppressScriptWarning";
 import {getDictionary} from "@/lib/i18n/getDictionary";
+import {type} from "node:os";
 
 // 2. Configure Fonts
 const inter = Inter({subsets: ['latin'], variable: '--font-inter'})
@@ -31,10 +32,11 @@ export default async function RootLayout({children, params}: {
 	params: Promise<{ locale: Locale }>;
 }) {
 	const {locale} = await params;
-	const dict = await getDictionary(locale);
-	const dir = rtlLocales.includes(locale) ? 'rtl' : 'ltr';
+	const typedLocale = locale as Locale;
+	const dict = await getDictionary(typedLocale);
+	const dir = rtlLocales.includes(typedLocale) ? 'rtl' : 'ltr';
 	return (
-			<html lang={locale} dir={dir} className="scroll-smooth" suppressHydrationWarning data-theme="dark">
+			<html lang={type()} dir={dir} className="scroll-smooth" suppressHydrationWarning data-theme="dark">
 			<body
 					className={`${inter.variable} ${spaceGrotesk.variable} font-sans flex flex-col min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 overflow-x-hidden`}>
 			<SuppressScriptWarning/>
@@ -47,7 +49,7 @@ export default async function RootLayout({children, params}: {
 					}}
 			/>
 
-			<Header locale={locale} dict={dict}/>
+			<Header locale={typedLocale} dict={dict}/>
 
 			{/* 3. Changed: Removed max-w-5xl here so specific pages can control their own width */}
 			<main className='flex-grow w-full'>

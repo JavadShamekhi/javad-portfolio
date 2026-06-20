@@ -13,7 +13,8 @@ export default async function HomePage({
 	                                       params,
                                        }: { params: Promise<{ locale: Locale }>; }) {
 	const {locale} = await params;
-	const dict = await getDictionary(locale);
+	const typedLocale = locale as Locale;
+	const dict = await getDictionary(typedLocale);
 
 	return (
 			<>
