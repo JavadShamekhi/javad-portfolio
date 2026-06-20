@@ -8,6 +8,8 @@ import TimelineItem from "@/components/ui/TimelineItem";
 import Image from "next/image";
 import {Locale} from "@/lib/i18n/config";
 import {getDictionary} from "@/lib/i18n/getDictionary";
+import {projects} from "@/lib/data/projects";
+import {experience} from "@/lib/data/experience";
 
 export default async function HomePage({
 	                                       params,
@@ -37,26 +39,27 @@ export default async function HomePage({
 							</div>
 
 							<h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight font-space">
-								Hi, I’m <span
-									className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">Javad</span>
+								{dict.home.hi} <span
+									className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">{dict.home.javad}</span>
 							</h1>
 
 							<p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed mb-8">
-								Frontend developer specializing in <strong
-									className="text-gray-900 dark:text-white">React</strong>,{" "}
-								<strong className="text-gray-900 dark:text-white">Next.js</strong>, and{" "}
-								<strong className="text-gray-900 dark:text-white">TypeScript</strong>. I build modern, responsive, and
-								user-friendly web applications with clean and scalable UI architecture.
+								{dict.home.introPrefix}{" "}
+								<strong className="text-gray-900 dark:text-white">React</strong>,{" "}
+								<strong className="text-gray-900 dark:text-white">Next.js</strong>{" "}
+								{dict.home.introMiddle}{" "}
+								<strong className="text-gray-900 dark:text-white">TypeScript</strong>.{" "}
+								{dict.home.introSuffix}
 							</p>
 
 							<div className="flex flex-col sm:flex-row gap-4">
 								<Link href="/projects"
 								      className="bg-blue-600 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/20 transition-all">
-									View Work
+									{dict.home.viewWork}
 								</Link>
 								<Link href="/contact"
 								      className="px-8 py-3.5 rounded-full font-semibold text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-800 hover:bg-gray-200 dark:hover:bg-gray-900 transition-all">
-									Contact Me
+									{dict.home.contactMe}
 								</Link>
 							</div>
 						</AnimatedContainer>
@@ -66,115 +69,108 @@ export default async function HomePage({
 				{/* Main Content Container */}
 				<div className="max-w-5xl mx-auto px-6 py-12 space-y-24">
 
-					<Section id="about" title={<span
-							className="inline-flex items-center gap-2">
-						<Image
-								src="/images/my-photo.png"
-								alt="My iconinc picture"
-								width="40"
-								height="40"
-						/> About</span> as unknown as string}
-					         subtitle="Who I am and what I do">
+					<Section
+							id="about"
+							title={
+								<span className="inline-flex items-center gap-2">
+      <Image
+		      src="/images/my-photo.png"
+		      alt="My iconic picture"
+		      width="40"
+		      height="40"
+      />
+									{dict.about.sectionTitle}
+    </span> as unknown as string
+							}
+							subtitle={dict.about.sectionSubtitle}
+					>
 						<div className="prose dark:prose-invert max-w-none text-lg text-gray-600 dark:text-gray-400">
 							<p>
-								Hi! I’m <span className="font-semibold text-gray-900 dark:text-white">Javad</span>, a frontend developer
-								focused on building modern, responsive, and user-friendly web applications.
+								{dict.about.intro}{" "}
+								<span className="font-semibold text-gray-900 dark:text-white">{dict.home.javad}</span>
+								{locale === 'fa' ? '،' : ','} {dict.about.introRole}
 							</p>
 
 							<p>
-								I have hands-on experience with{" "}
+								{dict.about.experiencePrefix}{" "}
 								<span className="font-semibold text-gray-900 dark:text-white">
-				React, Next.js, TypeScript, Tailwind CSS, Material UI, and Ant Design
-			</span>{" "}
-								and I enjoy turning ideas into clean, scalable, and interactive interfaces.
+        {dict.about.experienceSkills}
+      </span>{" "}
+								{dict.about.experienceSuffix}
 							</p>
 
 							<p>
-								I graduated in{" "}
+								{dict.about.educationPrefix}{" "}
 								<span className="font-semibold text-gray-900 dark:text-white">
-				Computer Engineering
-			</span>{" "}
-								and I’m continuously improving my skills in frontend development, UI engineering, and modern web
-								technologies.
+        {dict.about.educationDegree}
+      </span>{" "}
+								{dict.about.educationSuffix}
 							</p>
 
 							<p>
-								Beyond coding, I’m an active and social person who enjoys{" "}
+								{dict.about.hobbiesPrefix}{" "}
 								<span className="font-semibold text-gray-900 dark:text-white">
-				basketball, spending time with friends, and working in team environments
-			</span>
-								. I like learning new things, improving myself, and growing both technically and personally.
+        {dict.about.hobbiesList}
+      </span>
+								{locale === 'fa' ? '' : '.'} {dict.about.hobbiesSuffix}
 							</p>
 						</div>
-						<div className="mt-8 text-center">
-							<Link href="/about" className="inline-flex items-center text-blue-600 font-semibold hover:underline">
-								More about me and my skills →
+
+						<div dir={locale === 'fa' ? 'ltr' : 'rtl'} className="mt-8 text-center">
+							<Link href={`/${locale}/about`}
+							      className="inline-flex items-center text-blue-600 font-semibold hover:underline">
+								{dict.about.moreLink} {locale === 'fa' ? '←' : '→'}
 							</Link>
 						</div>
 					</Section>
 
-					<Section id="projects" title="Featured Projects" subtitle="Selected work">
+					<Section id="projects" title={dict.projects.sectionTitle} subtitle={dict.projects.sectionSubtitle}>
 						<div className="grid md:grid-cols-2 gap-6">
-							{[
-								{
-									title: "Gold Store",
-									description:
-											"E-commerce platform for gold and jewelry with product listing, cart system, and admin features.",
-									tech: ["Next.js", "TypeScript", "Tailwind", "REST API", "PostgreSQL", "Neon Database", "Auth", "JWT", "DarkMode", "Language Switcher"],
-									repoUrl: "https://github.com/JavadShamekhi/gold-store",
-									demoUrl: "https://zarringoldstore.ir",
-								},
-								{
-									title: "Portfolio Website",
-									description:
-											"Personal portfolio showcasing projects, skills, and contact system with email integration.",
-									tech: ["Next.js", "TypeScript", "Tailwind", "Framer Motion", "Resend", "DarkMode"],
-									repoUrl: "https://github.com/JavadShamekhi/javad-portfolio",
-									demoUrl: "https://javadshamekhi.ir",
-								},
-							].map((p) => (
-									<ProjectCard key={p.title} {...p} />
+							{projects.map((p) => (
+									<ProjectCard
+											key={p.id}
+											title={p.title[locale]}
+											description={p.description[locale]}
+											tech={p.tech}
+											repoUrl={p.repoUrl}
+											demoUrl={p.demoUrl}/>
 							))}
 						</div>
-						<div className="mt-8 text-center">
+						<div dir={locale === 'fa' ? 'ltr' : 'rtl'} className="mt-8 text-center">
 							<Link href="/projects" className="inline-flex items-center text-blue-600 font-semibold hover:underline">
-								View all projects →
+								{dict.projects.viewAllLink} {locale === 'fa' ? '←' : '→'}
 							</Link>
 						</div>
 					</Section>
 					<Section title={<span
-							className="inline-flex items-center gap-2"><FaBriefcase/> Experience</span> as unknown as string}
-					         subtitle="You can see my job experiences here"
+							className="inline-flex items-center gap-2"><FaBriefcase/> {dict.experience.sectionTitle}</span> as unknown as string}
+					         subtitle={dict.experience.sectionSubtitle}
 					         id="experience"
 					>
-						<ul className="space-y-6 border-l-2 border-blue-600/60 dark:border-blue-500/60 pl-4">
-							<TimelineItem
-									title="ERP Software Support & Database Specialist"
-									org="ERP Solutions Company, at Ava Samaneh Mandegar, Karaj"
-									period="2022 – 2023"
-									description="Worked on enterprise ERP systems with a focus on SQL Server database management, reporting, and system maintenance."
-									bullets={["Developed and optimized T-SQL queries, stored procedures, and reports", "Performed SQL Server backup and recovery operations", "Improved database performance and troubleshooting processes", "Provided technical support for ERP users and business operations"]}
-							/>
-							<TimelineItem
-									title="Frontend Developer - React"
-									org="Administrative Automation System at Military of Iran, Tehran"
-									period="2024–2026"
-									description="Developed and maintained web-based administrative automation software using React."
-									bullets={["Built responsive and user-friendly interfaces with React", "Implemented reusable components and modern frontend architecture", "Integrated frontend applications with backend APIs", "Collaborated with stakeholders to improve usability and workflow efficiency"]}
-							/>
+						<ul className="space-y-6 border-s-2 border-blue-600/60 dark:border-blue-500/60 pl-4">
+							{experience.map((exp) => (
+									<TimelineItem
+											key={exp.id}
+											title={exp.title[locale]}
+											org={exp.org[locale]}
+											period={exp.period[locale]}
+											description={exp.description[locale]}
+											bullets={exp.bullets[locale]}
+									/>
+							))}
 						</ul>
 
-						<div className="mt-8 text-center">
+						<div dir={locale === 'fa' ? 'ltr' : 'rtl'} className="mt-8 text-center">
 							<Link href="/resume" className="inline-flex items-center text-blue-600 font-semibold hover:underline">
-								View full resume →
+								{dict.experience.viewFullLink} {locale === 'fa' ? '←' : '→'}
 							</Link>
 						</div>
 					</Section>
 
 
-					<Section id="contact" title="Get in Touch" subtitle="Let's work together">
+					<Section id="contact" title={dict.contact.sectionTitle} subtitle={dict.contact.sectionSubtitle}>
 						<div className="bg-blue-100/50 dark:bg-gray-900/50 p-8 md:p-12 rounded-3xl">
-							<ContactForm/>
+							<ContactForm dict={dict}/>
 						</div>
 					</Section>
 				</div>
