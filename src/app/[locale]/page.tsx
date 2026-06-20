@@ -1,13 +1,20 @@
 import Link from "next/link"
-import AnimatedContainer from "@/components/AnimatedContainer"
-import Section from "@/components/Section"
-import ProjectCard from "@/components/ProjectCard"
-import ContactForm from "@/components/ContactForm"
+import AnimatedContainer from "@/components/ui/AnimatedContainer"
+import Section from "@/components/ui/Section"
+import ProjectCard from "@/components/ui/ProjectCard"
+import ContactForm from "@/components/ui/ContactForm"
 import {FaBriefcase} from "react-icons/fa";
-import TimelineItem from "@/components/TimelineItem";
+import TimelineItem from "@/components/ui/TimelineItem";
 import Image from "next/image";
+import {Locale} from "@/lib/i18n/config";
+import {getDictionary} from "@/lib/i18n/getDictionary";
 
-export default function HomePage() {
+export default async function HomePage({
+	                                       params,
+                                       }: { params: Promise<{ locale: Locale }>; }) {
+	const {locale} = await params;
+	const dict = await getDictionary(locale);
+
 	return (
 			<>
 				{/* 1. Modern Hero Section */}
@@ -25,7 +32,7 @@ export default function HomePage() {
 		                  className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
                 </span>
-								Available for work
+								{dict.home.available}
 							</div>
 
 							<h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight font-space">

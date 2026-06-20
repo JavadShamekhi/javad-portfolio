@@ -1,4 +1,4 @@
-import AnimatedContainer from "@/components/AnimatedContainer"
+import AnimatedContainer from "@/components/ui/AnimatedContainer"
 
 export const metadata = {
 	title: "About - My Portfolio",

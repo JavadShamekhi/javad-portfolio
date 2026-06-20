@@ -1,9 +1,9 @@
 import {FaBriefcase, FaGraduationCap, FaTools} from "react-icons/fa";
-import Section from "@/components/Section";
-import TimelineItem from "@/components/TimelineItem";
-import SkillBadge from "@/components/SkillBadge";
-import ProjectCard from "@/components/ProjectCard";
-import AnimatedContainer from "@/components/AnimatedContainer";
+import Section from "@/components/ui/Section";
+import TimelineItem from "@/components/ui/TimelineItem";
+import SkillBadge from "@/components/ui/SkillBadge";
+import ProjectCard from "@/components/ui/ProjectCard";
+import AnimatedContainer from "@/components/ui/AnimatedContainer";
 
 export const metadata = {
 	title: "Resume - My Resume and Experiences",
