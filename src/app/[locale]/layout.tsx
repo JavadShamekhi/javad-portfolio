@@ -29,7 +29,7 @@ export function generateStaticParams() {
 
 export default async function RootLayout({children, params}: {
 	children: React.ReactNode;
-	params: Promise<{ locale: Locale }>;
+	params: Promise<{ locale: string }>;
 }) {
 	const {locale} = await params;
 	const typedLocale = locale as Locale;
