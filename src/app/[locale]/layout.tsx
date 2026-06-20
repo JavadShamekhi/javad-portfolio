@@ -1,10 +1,14 @@
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
+import Footer from '@/components/ui/Footer';
+import Header from '@/components/ui/Header';
 import {Metadata} from 'next';
 import {Inter, Space_Grotesk} from 'next/font/google'; // 1. Import Fonts
 import React from 'react';
-import "./globals.css";
-import { Toaster } from "react-hot-toast";
+import "../globals.css";
+import {Toaster} from "react-hot-toast";
+import {Locale, locales, rtlLocales} from "@/lib/i18n/config";
+import Script from "next/script";
+import SuppressScriptWarning from "@/components/SuppressScriptWarning";
+import {getDictionary} from "@/lib/i18n/getDictionary";
 
 // 2. Configure Fonts
 const inter = Inter({subsets: ['latin'], variable: '--font-inter'})
@@ -18,24 +22,37 @@ export const metadata: Metadata = {
 	},
 }
 
-export default function RootLayout({children}: { children: React.ReactNode }) {
+export function generateStaticParams() {
+	return locales.map((locale) => ({locale}));
+}
+
+export default async function RootLayout({children, params}: {
+	children: React.ReactNode;
+	params: Promise<{ locale: Locale }>;
+}) {
+	const {locale} = await params;
+	const dict = await getDictionary(locale);
+	const dir = rtlLocales.includes(locale) ? 'rtl' : 'ltr';
 	return (
-			<html lang='en' className="scroll-smooth" suppressHydrationWarning data-theme="dark">
+			<html lang={locale} dir={dir} className="scroll-smooth" suppressHydrationWarning data-theme="dark">
 			<body
 					className={`${inter.variable} ${spaceGrotesk.variable} font-sans flex flex-col min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 overflow-x-hidden`}>
+			<SuppressScriptWarning/>
 			{/* Theme Script */}
-			<script
+			<Script
+					id="theme-script"
+					strategy="beforeInteractive"
 					dangerouslySetInnerHTML={{
 						__html: `(() => {try {const t = localStorage.getItem('theme'); const d = t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches; const c = document.documentElement.classList; d ? c.add('dark') : c.remove('dark');} catch (e) {}})();`
 					}}
 			/>
 
-			<Header/>
+			<Header locale={locale} dict={dict}/>
 
 			{/* 3. Changed: Removed max-w-5xl here so specific pages can control their own width */}
 			<main className='flex-grow w-full'>
 				{children}
-				<Toaster position="bottom-right" />
+				<Toaster position="bottom-right"/>
 			</main>
 
 			<Footer/>

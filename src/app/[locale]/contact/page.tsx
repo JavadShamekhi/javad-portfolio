@@ -1,5 +1,5 @@
-import ContactForm from "@/components/ContactForm";
-import AnimatedContainer from "@/components/AnimatedContainer";
+import ContactForm from "@/components/ui/ContactForm";
+import AnimatedContainer from "@/components/ui/AnimatedContainer";
 
 export const metadata = {
 	title: "Contact - Get in Touch",

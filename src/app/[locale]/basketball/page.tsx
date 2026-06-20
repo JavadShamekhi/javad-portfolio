@@ -1,7 +1,7 @@
 import React from 'react'
-import AnimatedContainer from '@/components/AnimatedContainer'
-import Section from '@/components/Section'
-import BasketballBadge from '@/components/BasketballBadge'
+import AnimatedContainer from '@/components/ui/AnimatedContainer'
+import Section from '@/components/ui/Section'
+import BasketballBadge from '@/components/ui/BasketballBadge'
 
 export const metadata = {
   title: 'Basketball • Hoops Theme',

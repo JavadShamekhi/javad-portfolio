@@ -1,5 +1,5 @@
 "use client";
-import ProjectCard from "@/components/ProjectCard";
+import ProjectCard from "@/components/ui/ProjectCard";
 import {useMemo, useState} from "react";
 
 type Project = {
