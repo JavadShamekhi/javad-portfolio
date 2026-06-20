@@ -1,33 +1,18 @@
 'use client'
 
+import {useTheme} from 'next-themes'
 import {useEffect, useState} from 'react'
 import {FaMoon, FaSun} from 'react-icons/fa'
 
 export default function ThemeToggle() {
-	const [isDark, setIsDark] = useState<boolean | null>(null)
+	const {theme, setTheme, systemTheme} = useTheme()
+	const [mounted, setMounted] = useState(false)
 
 	useEffect(() => {
-		const stored = localStorage.getItem('theme')
-		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-
-		const shouldBeDark = stored ? stored === 'dark' : prefersDark
-
-		setIsDark(shouldBeDark)
+		setMounted(true)
 	}, [])
 
-	useEffect(() => {
-		if (isDark === null) return
-		const root = document.documentElement
-		if (isDark) {
-			root.classList.add('dark')
-			localStorage.setItem('theme', 'dark')
-		} else {
-			root.classList.remove('dark')
-			localStorage.setItem('theme', 'light')
-		}
-	}, [isDark])
-
-	if (isDark === null) {
+	if (!mounted) {
 		return (
 				<button
 						className="w-9 h-9 rounded-md border opacity-50"
@@ -38,10 +23,13 @@ export default function ThemeToggle() {
 		)
 	}
 
+	const currentTheme = theme === 'system' ? systemTheme : theme
+	const isDark = currentTheme === 'dark'
+
 	return (
 			<button
 					aria-label="Toggle dark mode"
-					onClick={() => setIsDark((v) => !v)}
+					onClick={() => setTheme(isDark ? 'light' : 'dark')}
 					className="inline-flex items-center justify-center w-9 h-9 rounded-md border border-[var(--toggle-b)] hover:border-[var(--toggle-bh)] transition cursor-pointer"
 					title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
 			>
@@ -49,5 +37,3 @@ export default function ThemeToggle() {
 			</button>
 	)
 }
-
-

@@ -2,20 +2,19 @@ import {
 	FaGithub, FaLinkedin, FaInstagram,
 	FaEnvelope, FaPhoneAlt, FaWhatsapp, FaTelegramPlane
 } from "react-icons/fa";
-import {formatDate, formatNumber, formatYear, toPersianDigits} from "@/lib/i18n/formatters";
-import {Locale} from "@/lib/i18n/config";
-import {Dictionary} from "@/lib/i18n/types";
+import { formatYear, toPersianDigits } from "@/lib/i18n/formatters";
+import { Locale } from "@/lib/i18n/config";
+import { Dictionary } from "@/lib/i18n/types";
 
-export default function Footer({locale, dict}: { locale: Locale; dict: Dictionary }) {
+export default function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
 	return (
 			<footer
 					className="relative bg-gray-300/50 dark:bg-blue-950/30 text-gray-600 dark:text-gray-400 py-20 mt-auto overflow-hidden transition-colors duration-300">
 
-				{/* Background Image with Low Opacity */}
 				<div
 						className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.07] pointer-events-none grayscale"
 						style={{
-							backgroundImage: 'url("https://www.transparenttextures.com/patterns/cubes.png")', // Professional subtle pattern
+							backgroundImage: 'url("https://www.transparenttextures.com/patterns/cubes.png")',
 							backgroundSize: '200px',
 						}}
 				></div>
@@ -32,18 +31,19 @@ export default function Footer({locale, dict}: { locale: Locale; dict: Dictionar
 										className="w-12 h-12 rounded-full border-2 border-gray-700 object-cover"
 								/>
 								<h2 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tighter">
-									JAVAD SHAMEKHI
+									{dict.footer.profile}
 								</h2>
 							</div>
 							<p className="text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
-								Frontend Developer specializing in building exceptional digital experiences.
-								Focused on clean code and user-centric design.
+								{dict.footer.bio}
 							</p>
 						</div>
 
 						{/* 2. Direct Contact (Phone, Email, Chat) */}
 						<div className="flex flex-col items-center justify-center md:items-start space-y-4">
-							<h3 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-900 dark:text-gray-200">Contact</h3>
+							<h3 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-900 dark:text-gray-200">
+								{dict.footer.contactTitle}
+							</h3>
 							<div className="space-y-3 w-full">
 								<a href="mailto:javad.shamekhi.80@gmail.com"
 								   className="flex items-center justify-center md:justify-start gap-3 hover:text-blue-500 transition-colors">
@@ -74,7 +74,9 @@ export default function Footer({locale, dict}: { locale: Locale; dict: Dictionar
 
 						{/* 3. Social Presence */}
 						<div className="flex flex-col items-center md:items-end space-y-4">
-							<h3 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-900 dark:text-gray-200">Socials</h3>
+							<h3 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-900 dark:text-gray-200">
+								{dict.footer.socialsTitle}
+							</h3>
 							<div className="flex gap-2">
 								<a href="https://github.com/JavadShamekhi" target="_blank" rel="noreferrer"
 								   className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
@@ -95,11 +97,14 @@ export default function Footer({locale, dict}: { locale: Locale; dict: Dictionar
 					{/* Bottom Bar */}
 					<div
 							className="mt-20 pt-8 border-t border-gray-500 dark:border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-medium uppercase tracking-widest text-gray-600 dark:text-gray-500">
-						<p>© {formatYear(new Date(), locale)} . Designed and Developed by Javad Shamekhi</p>
+						<p>© {formatYear(new Date(), locale)} . {dict.footer.copyrightSuffix}</p>
 						<div className="flex gap-6">
-							<span
-									className="hover:text-gray-900 dark:hover:text-white cursor-default transition-colors">Based in Iran</span>
-							<span className="hover:text-gray-900 dark:hover:text-white cursor-default transition-colors">Available for Work</span>
+            <span className="hover:text-gray-900 dark:hover:text-white cursor-default transition-colors">
+              {dict.footer.basedIn}
+            </span>
+							<span className="hover:text-gray-900 dark:hover:text-white cursor-default transition-colors">
+              {dict.footer.availableForWork}
+            </span>
 						</div>
 					</div>
 				</div>
