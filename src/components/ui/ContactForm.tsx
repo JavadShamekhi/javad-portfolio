@@ -1,8 +1,9 @@
 "use client"
 
 import toast from "react-hot-toast";
+import {Dictionary} from "@/lib/i18n/types";
 
-export default function ContactForm() {
+export default function ContactForm({dict}: { dict: Dictionary }) {
 
 	async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault()
@@ -22,10 +23,10 @@ export default function ContactForm() {
 		})
 
 		if (res.ok) {
-			toast.success("Message sent successfully 🚀")
+			toast.success(dict.contactForm.successToast)
 			form.reset()
 		} else {
-			toast.error("Failed to send message ❌")
+			toast.error(dict.contactForm.errorToast)
 		}
 	}
 
@@ -33,29 +34,29 @@ export default function ContactForm() {
 			<form onSubmit={handleSubmit} className="space-y-5">
 				<input
 						name="name"
-						placeholder="Your Name"
+						placeholder={dict.contactForm.namePlaceholder}
 						className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-500 dark: placeholder:text-gray-500"
 						required
 				/>
 				<input
 						type="email"
 						name="email"
-						placeholder="Your Email"
+						placeholder={dict.contactForm.emailPlaceholder}
 						className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-500 dark: placeholder:text-gray-500"
 						required
 				/>
 				<textarea
 						name="message"
-						placeholder="Your Message"
+						placeholder={dict.contactForm.messagePlaceholder}
 						rows={5}
 						className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-500 dark: placeholder:text-gray-500"
 						required
 				/>
 				<button
 						type="submit"
-						className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+						className="cursor-pointer bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
 				>
-					Send Message
+					{dict.contactForm.submit}
 				</button>
 			</form>
 	)
