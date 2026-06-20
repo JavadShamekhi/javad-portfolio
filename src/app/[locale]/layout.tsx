@@ -1,3 +1,4 @@
+import '@/lib/suppressDevWarnings';
 import Footer from '@/components/ui/Footer';
 import Header from '@/components/ui/Header';
 import {Metadata} from 'next';
@@ -6,10 +7,8 @@ import React from 'react';
 import "../globals.css";
 import {Toaster} from "react-hot-toast";
 import {Locale, locales, rtlLocales} from "@/lib/i18n/config";
-import Script from "next/script";
-import SuppressScriptWarning from "@/components/SuppressScriptWarning";
 import {getDictionary} from "@/lib/i18n/getDictionary";
-import {type} from "node:os";
+import {ThemeProvider} from "@/components/ThemeProvider";
 
 // 2. Configure Fonts
 const inter = Inter({subsets: ['latin'], variable: '--font-inter'})
@@ -40,25 +39,17 @@ export default async function RootLayout({children, params}: {
 			<html lang={typedLocale} dir={dir} className="scroll-smooth" suppressHydrationWarning data-theme="dark">
 			<body
 					className={`${inter.variable} ${spaceGrotesk.variable} ${vazirmatn.variable} font-sans flex flex-col min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 overflow-x-hidden`}>
-			<SuppressScriptWarning/>
-			{/* Theme Script */}
-			<Script
-					id="theme-script"
-					strategy="beforeInteractive"
-					dangerouslySetInnerHTML={{
-						__html: `(() => {try {const t = localStorage.getItem('theme'); const d = t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches; const c = document.documentElement.classList; d ? c.add('dark') : c.remove('dark');} catch (e) {}})();`
-					}}
-			/>
 
-			<Header locale={typedLocale} dict={dict}/>
+			<ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+				<Header locale={typedLocale} dict={dict}/>
 
-			{/* 3. Changed: Removed max-w-5xl here so specific pages can control their own width */}
-			<main className='flex-grow w-full'>
-				{children}
-				<Toaster position="bottom-right"/>
-			</main>
+				<main className='flex-grow w-full'>
+					{children}
+					<Toaster position="bottom-right"/>
+				</main>
 
-			<Footer locale={typedLocale} dict={dict}/>
+				<Footer locale={typedLocale} dict={dict}/>
+			</ThemeProvider>
 			</body>
 			</html>
 	)
