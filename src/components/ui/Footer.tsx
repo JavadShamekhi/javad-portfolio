@@ -2,8 +2,11 @@ import {
 	FaGithub, FaLinkedin, FaInstagram,
 	FaEnvelope, FaPhoneAlt, FaWhatsapp, FaTelegramPlane
 } from "react-icons/fa";
+import {formatDate, formatNumber, formatYear, toPersianDigits} from "@/lib/i18n/formatters";
+import {Locale} from "@/lib/i18n/config";
+import {Dictionary} from "@/lib/i18n/types";
 
-export default function Footer() {
+export default function Footer({locale, dict}: { locale: Locale; dict: Dictionary }) {
 	return (
 			<footer
 					className="relative bg-gray-300/50 dark:bg-blue-950/30 text-gray-600 dark:text-gray-400 py-20 mt-auto overflow-hidden transition-colors duration-300">
@@ -39,28 +42,32 @@ export default function Footer() {
 						</div>
 
 						{/* 2. Direct Contact (Phone, Email, Chat) */}
-						<div className="flex flex-col items-center md:items-start space-y-4">
+						<div className="flex flex-col items-center justify-center md:items-start space-y-4">
 							<h3 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-900 dark:text-gray-200">Contact</h3>
 							<div className="space-y-3 w-full">
 								<a href="mailto:javad.shamekhi.80@gmail.com"
 								   className="flex items-center justify-center md:justify-start gap-3 hover:text-blue-500 transition-colors">
 									<FaEnvelope className="text-lg"/>
-									<span className="text-sm">javad.shamekhi.80@gmail.com</span>
+									<span dir="ltr" className="text-sm">javad.shamekhi.80@gmail.com</span>
 								</a>
 								<a href="tel:+989117851260"
 								   className="flex items-center justify-center md:justify-start gap-3 hover:text-gray-900 dark:hover:text-white transition-colors">
 									<FaPhoneAlt className="text-lg"/>
-									<span className="text-sm">+98 911 785 1260</span>
+									<span dir="ltr"
+									      className="text-sm">{locale === 'fa' ? toPersianDigits('+98 911 785 1260') : '+98 911 785 1260'}</span>
 								</a>
 								<a href="https://wa.me/+989117851260" target="_blank" rel="noreferrer"
-								   className="flex items-center justify-center md:justify-start gap-2 hover:text-green-500 transition-colors" title="WhatsApp">
+								   className="flex items-center justify-center md:justify-start gap-2 hover:text-green-500 transition-colors"
+								   title="WhatsApp">
 									<FaWhatsapp size={22}/>
-									<span className="text-sm">+98 911 785 1260</span>
+									<span dir="ltr"
+									      className="text-sm">{locale === 'fa' ? toPersianDigits('+98 911 785 1260') : '+98 911 785 1260'}</span>
 								</a>
 								<a href="https://t.me/javadshamekhi" target="_blank" rel="noreferrer"
-								   className="flex items-center justify-center md:justify-start gap-2 hover:text-blue-400 transition-colors" title="Telegram">
+								   className="flex items-center justify-center md:justify-start gap-2 hover:text-blue-400 transition-colors"
+								   title="Telegram">
 									<FaTelegramPlane size={22}/>
-									<span className="text-sm">@javadshamekhi</span>
+									<span dir="ltr" className="text-sm">@javadshamekhi</span>
 								</a>
 							</div>
 						</div>
@@ -88,7 +95,7 @@ export default function Footer() {
 					{/* Bottom Bar */}
 					<div
 							className="mt-20 pt-8 border-t border-gray-500 dark:border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-medium uppercase tracking-widest text-gray-600 dark:text-gray-500">
-						<p>© {new Date().getFullYear()} . Designed and Developed by Javad Shamekhi</p>
+						<p>© {formatYear(new Date(), locale)} . Designed and Developed by Javad Shamekhi</p>
 						<div className="flex gap-6">
 							<span
 									className="hover:text-gray-900 dark:hover:text-white cursor-default transition-colors">Based in Iran</span>
