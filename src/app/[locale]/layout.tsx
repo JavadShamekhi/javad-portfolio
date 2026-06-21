@@ -9,6 +9,7 @@ import {Toaster} from "react-hot-toast";
 import {Locale, locales, rtlLocales} from "@/lib/i18n/config";
 import {getDictionary} from "@/lib/i18n/getDictionary";
 import {ThemeProvider} from "@/components/ThemeProvider";
+import {NavigationHistoryProvider} from "@/components/NavigationHistoryProvider";
 
 // 2. Configure Fonts
 const inter = Inter({subsets: ['latin'], variable: '--font-inter'})
@@ -39,17 +40,16 @@ export default async function RootLayout({children, params}: {
 			<html lang={typedLocale} dir={dir} className="scroll-smooth" suppressHydrationWarning data-theme="dark">
 			<body
 					className={`${inter.variable} ${spaceGrotesk.variable} ${vazirmatn.variable} font-sans flex flex-col min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 overflow-x-hidden`}>
-
-			<ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-				<Header locale={typedLocale} dict={dict}/>
-
-				<main className='flex-grow w-full'>
-					{children}
-					<Toaster position="bottom-right"/>
-				</main>
-
-				<Footer locale={typedLocale} dict={dict}/>
-			</ThemeProvider>
+			<NavigationHistoryProvider>
+				<ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+					<Header locale={typedLocale} dict={dict}/>
+					<main className='flex-grow w-full'>
+						{children}
+						<Toaster position="bottom-right"/>
+					</main>
+					<Footer locale={typedLocale} dict={dict}/>
+				</ThemeProvider>
+			</NavigationHistoryProvider>
 			</body>
 			</html>
 	)
