@@ -11,6 +11,10 @@
     "viewWork": "View Work",
     "contactMe": "Contact Me"
   },
+  "siteMetadata": {
+    "title": "Javad • Frontend Developer | Portfolio",
+    "description": "Frontend Developer | React.js • Next.js • TypeScript | Open to work"
+  },
   "about": {
     "sectionTitle": "About",
     "sectionSubtitle": "Who I am and what I do",

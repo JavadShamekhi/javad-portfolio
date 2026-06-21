@@ -16,12 +16,19 @@ const inter = Inter({subsets: ['latin'], variable: '--font-inter'})
 const spaceGrotesk = Space_Grotesk({subsets: ['latin'], variable: '--font-space'})
 const vazirmatn = Vazirmatn({subsets: ['arabic'], variable: '--font-vazir'});
 
-export const metadata: Metadata = {
-	title: "Javad • Frontend Developer | Portfolio",
-	description: "Frontend Developer | React.js • Next.js • TypeScript | Open to work",
-	icons: {
-		icon: "/images/cropped_circle_image.png", // Make sure this path is correct in your public folder
-	},
+export async function generateMetadata({params}: {
+	params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+	const {locale} = await params;
+	const dict = await getDictionary(locale as Locale);
+
+	return {
+		title: dict.siteMetadata.title,
+		description: dict.siteMetadata.description,
+		icons: {
+			icon: "/images/cropped_circle_image.png",
+		},
+	};
 }
 
 export function generateStaticParams() {
