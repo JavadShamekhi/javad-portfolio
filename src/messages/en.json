@@ -117,5 +117,53 @@
   },
   "common": {
     "back": "Back"
+  },
+  "basketballPage": {
+    "metaTitle": "Basketball • Hoops Theme",
+    "metaDescription": "A basketball-themed page with colors and UI elements inspired by the game.",
+    "heroTitle": "Hoops Hub",
+    "heroSubtitle": "Stats, skills, and style inspired by basketball. Explore positions, fundamentals, and iconic moments with a warm orange palette.",
+    "badges": [
+      "Pick & Roll",
+      "Zone Defense",
+      "Fast Break"
+    ],
+    "positionsTitle": "Positions",
+    "positionsSubtitle": "Understand each role on the court",
+    "positions": [
+      {
+        "title": "Point Guard",
+        "desc": "Floor general, ball handling, playmaking."
+      },
+      {
+        "title": "Shooting Guard",
+        "desc": "Perimeter scoring, off-ball movement."
+      },
+      {
+        "title": "Small Forward",
+        "desc": "Versatile scorer and defender."
+      },
+      {
+        "title": "Power Forward",
+        "desc": "Interior presence, rebounding, pick-and-pop."
+      },
+      {
+        "title": "Center",
+        "desc": "Rim protection, post play, screens."
+      },
+      {
+        "title": "Sixth Man",
+        "desc": "Energy and scoring off the bench."
+      }
+    ],
+    "fundamentalsTitle": "Fundamentals",
+    "fundamentalsSubtitle": "Build a strong foundation",
+    "fundamentals": [
+      "Footwork and balance",
+      "Ball handling and passing lanes",
+      "Shooting mechanics and shot selection",
+      "Team defense and communication",
+      "Rebounding positioning"
+    ]
   }
 }
