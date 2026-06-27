@@ -44,7 +44,7 @@ export default async function ResumePage({params}: {
 					<p className="text-gray-600 dark:text-gray-300 mt-2">{r.subtitle}</p>
 					<div className="mt-4">
 						<a
-								href="/pdf/JavadShamekhi-cv.pdf"
+								href="/pdf/my-cv-javadshamekhi.pdf"
 								download
 								className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
 						>
