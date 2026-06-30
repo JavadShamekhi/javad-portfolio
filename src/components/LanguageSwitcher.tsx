@@ -14,7 +14,7 @@ export default function LanguageSwitcher({ currentLocale }: { currentLocale: Loc
 		segments[1] = nextLocale;
 
 		document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000`;
-		router.push(segments.join('/'));
+		router.replace(segments.join('/'));
 	}
 
 	return (

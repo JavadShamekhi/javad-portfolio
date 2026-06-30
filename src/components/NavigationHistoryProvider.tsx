@@ -2,10 +2,6 @@
 import {createContext, useContext, useEffect, useRef, ReactNode} from "react";
 import {usePathname, useRouter} from "next/navigation";
 
-function stripLocale(path: string): string {
-	return path.replace(/^\/(en|fa)/, "") || "/";
-}
-
 type NavigationHistoryContextType = {
 	goBack: () => void;
 };
@@ -15,26 +11,20 @@ const NavigationHistoryContext = createContext<NavigationHistoryContextType | nu
 export function NavigationHistoryProvider({children}: { children: ReactNode }) {
 	const router = useRouter();
 	const pathname = usePathname();
-	const stackRef = useRef<string[]>([]);
+	const isFirstRender = useRef(true);
+	const hasNavigatedRef = useRef(false);
 
 	useEffect(() => {
-		const stack = stackRef.current;
-		const currentLogical = stripLocale(pathname);
-		const lastLogical = stack.length > 0 ? stripLocale(stack[stack.length - 1]) : null;
-
-		if (lastLogical === currentLogical) {
-			stack[stack.length - 1] = pathname;
-		} else {
-			stack.push(pathname);
+		if (isFirstRender.current) {
+			isFirstRender.current = false;
+			return;
 		}
+		hasNavigatedRef.current = true;
 	}, [pathname]);
 
 	function goBack() {
-		const stack = stackRef.current;
-		if (stack.length > 1) {
-			stack.pop();
-			const previous = stack[stack.length - 1];
-			router.push(previous);
+		if (hasNavigatedRef.current) {
+			router.back();
 		} else {
 			router.push("/");
 		}
